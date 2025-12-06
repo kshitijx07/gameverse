@@ -82,7 +82,15 @@ const Dashboard = () => {
                 </div>
 
                 {/* Quick Actions */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <Card glow>
+                        <h3 className="text-2xl font-bold mb-4 gradient-text">🐍 Play Snake</h3>
+                        <p className="text-gray-400 mb-6">Test your reflexes in this classic game with real-time scoring!</p>
+                        <Link to="/play/snake">
+                            <Button>Play Now</Button>
+                        </Link>
+                    </Card>
+
                     <Card glow>
                         <h3 className="text-2xl font-bold mb-4 gradient-text">Browse Games</h3>
                         <p className="text-gray-400 mb-6">Discover new games and read reviews from the community</p>

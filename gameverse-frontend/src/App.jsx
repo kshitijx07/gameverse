@@ -19,6 +19,7 @@ const GameListPage = React.lazy(() => import('./pages/GameListPage'));
 const GameDetailPage = React.lazy(() => import('./pages/GameDetailPage'));
 const RoomListPage = React.lazy(() => import('./pages/RoomListPage'));
 const RoomDetailPage = React.lazy(() => import('./pages/RoomDetailPage'));
+const SnakeGame = React.lazy(() => import('./pages/SnakeGame'));
 
 function App() {
     return (
@@ -45,6 +46,7 @@ function App() {
                         <Route path="/games/:id" element={<ProtectedRoute><GameDetailPage /></ProtectedRoute>} />
                         <Route path="/rooms" element={<ProtectedRoute><RoomListPage /></ProtectedRoute>} />
                         <Route path="/rooms/:id" element={<ProtectedRoute><RoomDetailPage /></ProtectedRoute>} />
+                        <Route path="/play/snake" element={<ProtectedRoute><SnakeGame /></ProtectedRoute>} />
                     </Routes>
                 </React.Suspense>
             </Router>
