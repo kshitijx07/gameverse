@@ -27,13 +27,22 @@ const SignupPage = () => {
         e.preventDefault();
         setError('');
 
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            setError('Please enter a valid email address');
+            return;
+        }
+
         if (formData.password !== formData.confirmPassword) {
             setError('Passwords do not match');
             return;
         }
 
-        if (formData.password.length < 6) {
-            setError('Password must be at least 6 characters');
+        // Strong password validation
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+        if (!passwordRegex.test(formData.password)) {
+            setError('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character');
             return;
         }
 

@@ -28,13 +28,13 @@ const Input = ({
                 onChange={onChange}
                 onFocus={() => setFocused(true)}
                 onBlur={() => setFocused(false)}
-                placeholder={placeholder}
+                placeholder={focused ? placeholder : ''}
                 className={`
           w-full px-4 py-3 bg-dark-800 border-2 rounded-lg
           text-white placeholder-gray-500 outline-none
           transition-all duration-300
           ${error ? 'border-red-500' : focused ? 'border-neon-cyan shadow-neon' : 'border-gray-700'}
-          ${label ? 'pt-4' : ''}
+          ${label ? 'pt-6 pb-2' : ''}
         `}
                 {...props}
             />
