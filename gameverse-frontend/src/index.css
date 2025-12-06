@@ -1,0 +1,677 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0a0a0f;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #12121a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f0ff 0%, #b026ff 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #b026ff 0%, #ff006e 100%);
+}
+
+/* iOS 16 Style Glassmorphism */
+.glass {
+  background: rgba(17, 25, 40, 0.75);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-strong {
+  background: rgba(17, 25, 40, 0.85);
+  backdrop-filter: blur(20px) saturate(200%);
+  -webkit-backdrop-filter: blur(20px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 12px 40px 0 rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(90deg, #00f0ff 0%, #b026ff 50%, #ff006e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Neon Border */
+.neon-border {
+  border: 2px solid transparent;
+  background: linear-gradient(#0a0a0f, #0a0a0f) padding-box,
+    linear-gradient(90deg, #00f0ff, #b026ff, #ff006e) border-box;
+}
+
+/* Button Glow Effect */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(0, 240, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-glow:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Gaming-Inspired Animated Background */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  25% {
+    background-position: 100% 50%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+
+  75% {
+    background-position: 0% 100%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(135deg,
+      #0a0e27 0%,
+      #1a1f3a 25%,
+      #2a1f3a 50%,
+      #1a2f4a 75%,
+      #0a0e27 100%);
+  background-size: 400% 400%;
+  animation: gradient-shift 20s ease infinite;
+}
+
+/* Card Hover Effect with Gaming Glow */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 0 40px rgba(0, 240, 255, 0.4),
+    0 0 80px rgba(176, 38, 255, 0.2),
+    0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(0, 240, 255, 0.3);
+}
+
+/* Neon Shadow */
+.shadow-neon {
+  box-shadow:
+    0 0 20px rgba(0, 240, 255, 0.3),
+    0 0 40px rgba(176, 38, 255, 0.2);
+}
+
+/* Loading Animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  border: 3px solid rgba(0, 240, 255, 0.1);
+  border-top-color: #00f0ff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+/* Particle Animation */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100vh) translateX(50px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Gaming UI Glow Pulse */
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(0, 240, 255, 0.4), 0 0 60px rgba(176, 38, 255, 0.3);
+  }
+}
+
+.glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* ===== SCI-FI ANIMATIONS & EFFECTS ===== */
+
+/* Holographic Hover Effect (Cyberpunk style) */
+.holographic-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.holographic-hover::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg,
+      transparent 30%,
+      rgba(0, 240, 255, 0.1) 50%,
+      transparent 70%);
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+}
+
+.holographic-hover:hover::before {
+  left: 100%;
+}
+
+/* Click Ripple Effect (Valorant style) */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 240, 255, 0.6);
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  margin-top: -50px;
+  animation: ripple 0.6s ease-out;
+  pointer-events: none;
+}
+
+/* Scan Line Animation (Sci-Fi Terminal) */
+@keyframes scan {
+  0% {
+    top: -100%;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+.scan-lines {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-lines::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(0, 240, 255, 0.8),
+      transparent);
+  animation: scan 3s linear infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Energy Pulse Border (Apex Legends style) */
+@keyframes energy-pulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 10px rgba(0, 240, 255, 0.4),
+      inset 0 0 10px rgba(0, 240, 255, 0.2);
+  }
+
+  50% {
+    box-shadow:
+      0 0 30px rgba(0, 240, 255, 0.8),
+      inset 0 0 20px rgba(0, 240, 255, 0.4);
+  }
+}
+
+.energy-border {
+  border: 2px solid rgba(0, 240, 255, 0.5);
+  animation: energy-pulse 2s ease-in-out infinite;
+}
+
+/* Glitch Effect (Cyberpunk style) */
+@keyframes glitch {
+
+  0%,
+  100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+
+  20% {
+    transform: translate(-2px, 2px);
+    filter: hue-rotate(90deg);
+  }
+
+  40% {
+    transform: translate(2px, -2px);
+    filter: hue-rotate(180deg);
+  }
+
+  60% {
+    transform: translate(-2px, -2px);
+    filter: hue-rotate(270deg);
+  }
+
+  80% {
+    transform: translate(2px, 2px);
+    filter: hue-rotate(360deg);
+  }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+/* Neon Glow Button (Tron style) */
+.neon-button {
+  position: relative;
+  background: transparent;
+  border: 2px solid #00f0ff;
+  color: #00f0ff;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.neon-button::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #00f0ff, #b026ff, #ff006e, #00f0ff);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  filter: blur(10px);
+}
+
+.neon-button:hover {
+  background: rgba(0, 240, 255, 0.1);
+  box-shadow:
+    0 0 20px rgba(0, 240, 255, 0.6),
+    inset 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+.neon-button:hover::before {
+  opacity: 1;
+}
+
+.neon-button:active {
+  transform: scale(0.95);
+  box-shadow:
+    0 0 40px rgba(0, 240, 255, 1),
+    inset 0 0 30px rgba(0, 240, 255, 0.4);
+}
+
+/* Hexagon Grid Background (Overwatch style) */
+.hex-grid {
+  background-image:
+    linear-gradient(30deg, rgba(0, 240, 255, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(0, 240, 255, 0.05) 87.5%, rgba(0, 240, 255, 0.05)),
+    linear-gradient(150deg, rgba(0, 240, 255, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(0, 240, 255, 0.05) 87.5%, rgba(0, 240, 255, 0.05)),
+    linear-gradient(30deg, rgba(0, 240, 255, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(0, 240, 255, 0.05) 87.5%, rgba(0, 240, 255, 0.05)),
+    linear-gradient(150deg, rgba(0, 240, 255, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(0, 240, 255, 0.05) 87.5%, rgba(0, 240, 255, 0.05));
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+}
+
+/* Data Stream Effect (Matrix style) */
+@keyframes data-stream {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.data-stream {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(to bottom,
+      transparent,
+      rgba(0, 240, 255, 0.8),
+      transparent);
+  animation: data-stream 3s linear infinite;
+}
+
+/* Pulse Ring Effect (Fortnite style) */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.pulse-ring {
+  position: relative;
+}
+
+.pulse-ring::before,
+.pulse-ring::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(0, 240, 255, 0.6);
+  border-radius: inherit;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+.pulse-ring::after {
+  animation-delay: 1s;
+}
+
+/* Shimmer Effect (League of Legends style) */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(0, 240, 255, 0.3) 50%,
+      transparent 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Corner Brackets (Apex Legends UI) */
+.corner-brackets {
+  position: relative;
+}
+
+.corner-brackets::before,
+.corner-brackets::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #00f0ff;
+}
+
+.corner-brackets::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner-brackets::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+/* ===== TITLE & ICON SCI-FI EFFECTS ===== */
+
+/* Animated Glow Title (Cyberpunk style) */
+.title-glow {
+  text-shadow:
+    0 0 10px rgba(0, 240, 255, 0.8),
+    0 0 20px rgba(0, 240, 255, 0.6),
+    0 0 30px rgba(0, 240, 255, 0.4),
+    0 0 40px rgba(176, 38, 255, 0.3);
+  animation: title-pulse 3s ease-in-out infinite;
+}
+
+@keyframes title-pulse {
+
+  0%,
+  100% {
+    text-shadow:
+      0 0 10px rgba(0, 240, 255, 0.8),
+      0 0 20px rgba(0, 240, 255, 0.6),
+      0 0 30px rgba(0, 240, 255, 0.4),
+      0 0 40px rgba(176, 38, 255, 0.3);
+  }
+
+  50% {
+    text-shadow:
+      0 0 20px rgba(0, 240, 255, 1),
+      0 0 30px rgba(0, 240, 255, 0.8),
+      0 0 40px rgba(0, 240, 255, 0.6),
+      0 0 60px rgba(176, 38, 255, 0.5);
+  }
+}
+
+/* Color Cycling Title (Rainbow effect) */
+@keyframes color-cycle {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.color-cycle {
+  animation: color-cycle 10s linear infinite;
+}
+
+/* Icon Glow & Pulse */
+.icon-glow {
+  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.8)) drop-shadow(0 0 20px rgba(0, 240, 255, 0.4));
+  animation: icon-pulse 2s ease-in-out infinite;
+}
+
+@keyframes icon-pulse {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.8)) drop-shadow(0 0 20px rgba(0, 240, 255, 0.4));
+    transform: scale(1);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 20px rgba(0, 240, 255, 1)) drop-shadow(0 0 30px rgba(0, 240, 255, 0.6)) drop-shadow(0 0 40px rgba(176, 38, 255, 0.4));
+    transform: scale(1.1);
+  }
+}
+
+/* Icon Rotate on Hover */
+.icon-rotate:hover {
+  animation: icon-spin 0.6s ease-in-out;
+}
+
+@keyframes icon-spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* Holographic Text Effect */
+.holographic-text {
+  background: linear-gradient(90deg,
+      #00f0ff 0%,
+      #b026ff 25%,
+      #ff006e 50%,
+      #00f0ff 75%,
+      #b026ff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: holographic-shift 3s linear infinite;
+}
+
+@keyframes holographic-shift {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Icon Container Glow */
+.icon-container-glow {
+  box-shadow:
+    0 0 20px rgba(0, 240, 255, 0.4),
+    0 0 40px rgba(0, 240, 255, 0.2),
+    inset 0 0 20px rgba(0, 240, 255, 0.1);
+  animation: container-pulse 2s ease-in-out infinite;
+}
+
+@keyframes container-pulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px rgba(0, 240, 255, 0.4),
+      0 0 40px rgba(0, 240, 255, 0.2),
+      inset 0 0 20px rgba(0, 240, 255, 0.1);
+  }
+
+  50% {
+    box-shadow:
+      0 0 30px rgba(0, 240, 255, 0.6),
+      0 0 60px rgba(0, 240, 255, 0.3),
+      inset 0 0 30px rgba(0, 240, 255, 0.2);
+  }
+}
+
+/* Floating Icon Animation */
+.icon-float {
+  animation: float-icon 3s ease-in-out infinite;
+}
+
+@keyframes float-icon {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}

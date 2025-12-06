@@ -1,0 +1,16 @@
+package com.gameverse.controller;
+
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/chat")
+public class ChatController {
+    
+    // Temporarily disabled - will be enabled once ChatMessageRepository is properly loaded
+    // TODO: Re-enable chat endpoints after backend restart
+    
+    @GetMapping("/status")
+    public String getStatus() {
+        return "Chat controller is running - endpoints temporarily disabled";
+    }
+}
